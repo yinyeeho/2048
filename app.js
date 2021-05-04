@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let squares = [];
     let score = 0;
 
-    // create a playing board
     function createBoard() {
         for (let i =0; i < 16; i++) {
             square = document.createElement('div');
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     createBoard();
 
-    // generate a number randomly
     function generate() {
         let randomNumber = Math.floor(Math.random() * squares.length);
         if (squares[randomNumber].innerHTML == 0) {
@@ -32,10 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // we want all our numbers to swipe right
     function moveRight() {
         for (let i = 0; i < 16; i++){
-            // define the rows using modulus 
             if( i % 4 === 0) {
                 let totalOne = squares[i].innerHTML;
                 let totalTwo = squares[i+1].innerHTML;
@@ -55,10 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-    // swipe left
     function moveLeft() {
         for (let i = 0; i < 16; i++){
-            // define the rows using modulus 
+
             if( i % 4 === 0) {
                 let totalOne = squares[i].innerHTML;
                 let totalTwo = squares[i+1].innerHTML;
@@ -79,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //swipe down 
     function moveDown() {
         for(let i = 0; i < 4; i++){
             let totalOne = squares[i].innerHTML;
@@ -101,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // swipe up
     function moveUp() {
         for(let i = 0; i < 4; i++){
             let totalOne = squares[i].innerHTML;
@@ -149,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
         checkForWin();
     }
 
-    //assign keycodes
     function control(e) {
         if(e.keyCode === 39){
             keyRight();
@@ -203,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-    // check  if there are no 0s on the board
+
     function checkForGameOver() {
         let zeros = 0;
         for(let i = 0; i < squares.length; i++){
